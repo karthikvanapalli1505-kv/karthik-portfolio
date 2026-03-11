@@ -154,6 +154,22 @@ footer{padding:1.4rem 3rem;border-top:1px solid var(--border);background:var(--d
 .back-float:hover{border-color:var(--ac);color:var(--ac);transform:translateX(-4px)}
 .back-float::before{content:'←';font-size:.9rem}
 @media(max-width:600px){.back-float{bottom:1.2rem;left:1rem;padding:.55rem 1rem;font-size:.65rem}}
+
+/* CASE NAV */
+.cs-nav{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:4.5rem;background:var(--border)}
+.cs-nav-item{display:flex;align-items:center;gap:1.2rem;padding:2rem 2.4rem;background:var(--card);text-decoration:none;color:inherit;transition:background .2s,transform .2s;position:relative;overflow:hidden}
+.cs-nav-item:hover{background:var(--card2)}
+.cs-nav-item.prev{flex-direction:row}
+.cs-nav-item.next{flex-direction:row-reverse;text-align:right}
+.cs-nav-item::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--ac);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.cs-nav-item.next::before{transform-origin:right}
+.cs-nav-item:hover::before{transform:scaleX(1)}
+.csnav-arr{font-size:1.6rem;color:var(--muted);transition:color .2s,transform .2s;flex-shrink:0}
+.cs-nav-item.prev:hover .csnav-arr{color:var(--ac);transform:translateX(-5px)}
+.cs-nav-item.next:hover .csnav-arr{color:var(--ac);transform:translateX(5px)}
+.csnav-label{font-size:.48rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+.csnav-name{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.2rem,2.2vw,2rem);font-weight:900;font-style:italic;color:var(--white);line-height:1.1}
+@media(max-width:640px){.cs-nav{grid-template-columns:1fr}.cs-nav-item.next{flex-direction:row;text-align:left}}
 </style>
 </head>
 <body>
@@ -425,13 +441,16 @@ footer{padding:1.4rem 3rem;border-top:1px solid var(--border);background:var(--d
     <a href="https://www.figma.com/proto/kqI9sOw1vXOPCBncvIDrRa/CPAY?page-id=9%3A139&node-id=102-278&viewport=1644%2C1208%2C0.44&t=sL0Tg2CABkUm80PF-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=102%3A278" target="_blank" class="proto-btn">Open Prototype ↗</a>
   </div>
 
-  <a href="calmair-case-study.html" class="next-proj reveal">
-    <div>
-      <div class="np-label">Next Project · 03 · Travel UX</div>
-      <div class="np-name">Calm Air — Student Travel</div>
-    </div>
-    <div class="np-arr">→</div>
+  <div class="cs-nav">
+  <a href="3h-case-study.html" class="cs-nav-item prev reveal">
+    <div class="csnav-arr">←</div>
+    <div><div class="csnav-label">Previous · 01 · Social Impact</div><div class="csnav-name">3H — Community Assistance</div></div>
   </a>
+  <a href="calmair-case-study.html" class="cs-nav-item next reveal">
+    <div><div class="csnav-label">Next · 03 · Travel UX</div><div class="csnav-name">Calm Air — Student Travel</div></div>
+    <div class="csnav-arr">→</div>
+  </a>
+</div>
 
 </div>
 
