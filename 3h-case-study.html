@@ -145,6 +145,12 @@ footer{padding:1.4rem 3rem;border-top:1px solid var(--border);background:var(--d
 .browser-url{margin-left:8px;flex:1;background:rgba(255,255,255,.06);border-radius:3px;height:14px;max-width:240px}
 .browser-frame img{width:100%;display:block;aspect-ratio:1512/982;object-fit:cover;object-position:top;transition:transform .28s ease}
 .browser-frame-wf img{aspect-ratio:1512/982}
+
+/* FLOATING BACK BUTTON */
+.back-float{position:fixed;bottom:2rem;left:2rem;z-index:500;display:flex;align-items:center;gap:.55rem;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--white);text-decoration:none;background:rgba(8,8,8,.92);border:1px solid rgba(255,255,255,.12);padding:.65rem 1.2rem;backdrop-filter:blur(16px);transition:border-color .2s,color .2s,transform .2s}
+.back-float:hover{border-color:var(--ac);color:var(--ac);transform:translateX(-4px)}
+.back-float::before{content:'←';font-size:.9rem}
+@media(max-width:600px){.back-float{bottom:1.2rem;left:1rem;padding:.55rem 1rem;font-size:.65rem}}
 </style>
 </head>
 <body>
@@ -420,5 +426,7 @@ const obs = new IntersectionObserver(entries => entries.forEach(e => {
 }), { threshold: 0.06 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
+
+<a href="index.html" class="back-float">All Work</a>
 </body>
 </html>

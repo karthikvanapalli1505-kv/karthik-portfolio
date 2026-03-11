@@ -156,6 +156,12 @@ footer{padding:1.4rem 3rem;border-top:1px solid var(--border);background:var(--d
 .laptop-notch::before{content:'';width:40px;height:3px;background:rgba(255,255,255,.08);border-radius:2px}
 .laptop-stand{width:40%;height:8px;background:linear-gradient(180deg,#222,#1a1a1a);margin:0 auto;border-radius:0 0 8px 8px;border:1px solid rgba(255,255,255,.06);border-top:none}
 .laptop-foot{width:55%;height:4px;background:#181818;margin:0 auto;border-radius:0 0 4px 4px;border:1px solid rgba(255,255,255,.05);border-top:none}
+
+/* FLOATING BACK BUTTON */
+.back-float{position:fixed;bottom:2rem;left:2rem;z-index:500;display:flex;align-items:center;gap:.55rem;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--white);text-decoration:none;background:rgba(8,8,8,.92);border:1px solid rgba(255,255,255,.12);padding:.65rem 1.2rem;backdrop-filter:blur(16px);transition:border-color .2s,color .2s,transform .2s}
+.back-float:hover{border-color:var(--ac);color:var(--ac);transform:translateX(-4px)}
+.back-float::before{content:'←';font-size:.9rem}
+@media(max-width:600px){.back-float{bottom:1.2rem;left:1rem;padding:.55rem 1rem;font-size:.65rem}}
 </style>
 </head>
 <body>
@@ -450,5 +456,7 @@ const obs = new IntersectionObserver(entries => entries.forEach(e => {
 }), { threshold: 0.06 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
+
+<a href="index.html" class="back-float">All Work</a>
 </body>
 </html>
