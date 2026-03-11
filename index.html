@@ -77,6 +77,7 @@ body.hero-ready .hero-portrait{animation:portrait-in .8s cubic-bezier(.16,1,.3,1
 body.hero-ready .hero-meta{animation:h-fade .5s cubic-bezier(.16,1,.3,1) .75s forwards}
 .hero-name-sub{font-family:'Barlow Condensed',sans-serif;font-size:clamp(.7rem,1vw,1rem);font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--orange)}
 .hero-tagline{font-size:clamp(.85rem,1.1vw,.98rem);font-weight:300;color:var(--muted);letter-spacing:.02em}
+.hero-location{font-size:clamp(.7rem,.9vw,.82rem);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-top:.1rem}
 .h-btns{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center;margin-top:.8rem}
 
 /* Thin orange rule under portrait */
@@ -275,8 +276,9 @@ footer{padding:1.5rem 3rem;border-top:1px solid var(--border);background:var(--d
 
     <!-- Name, tagline, buttons -->
     <div class="hero-meta">
-      <div class="hero-name-sub">Karthik Vanapalli &nbsp;·&nbsp; London, UK &nbsp;·&nbsp; Available Now</div>
-      <div class="hero-tagline">Designing products that simplify complex systems.</div>
+      <div class="hero-name-sub">Karthik Vanapalli</div>
+      <div class="hero-tagline">Product designer focused on clear UX, interaction design, and practical product thinking.</div>
+      <div class="hero-location">Based in London &nbsp;·&nbsp; Open to Junior Product Designer roles</div>
       <div class="h-btns">
         <a href="#work" class="btn-p">View Projects</a>
         <a href="#contact" class="btn-s">Contact →</a>
@@ -489,13 +491,13 @@ footer{padding:1.5rem 3rem;border-top:1px solid var(--border);background:var(--d
           <div class="contact-big">Let's<br><span class="o">Work<br>Together</span></div>
           <p class="c-sub">Looking for junior product designer opportunities. I respond quickly — reach out anytime.</p>
           <div class="c-btns">
-            <a href="mailto:karthikvanapalli1505@gmail.com" class="btn-p">Email Me</a>
+            <a href="/cdn-cgi/l/email-protection#91faf0e3e5f9f8fae7f0fff0e1f0fdfdf8a0a4a1a4d1f6fcf0f8fdbff2fefc" class="btn-p">Email Me</a>
             <a href="https://www.linkedin.com/in/venkatakarthikdesigner" target="_blank" class="btn-s">LinkedIn ↗</a>
           </div>
         </div>
         <div class="c-links reveal rr d1">
-          <a href="mailto:karthikvanapalli1505@gmail.com" class="c-link">
-            <div class="cl-info"><div class="cl-tag">Email</div><div class="cl-name">karthikvanapalli1505@gmail.com</div></div>
+          <a href="/cdn-cgi/l/email-protection#6c070d1e180405071a0d020d1c0d0000055d595c592c0b010d0500420f0301" class="c-link">
+            <div class="cl-info"><div class="cl-tag">Email</div><div class="cl-name"><span class="__cf_email__" data-cfemail="96fdf7e4e2fefffde0f7f8f7e6f7fafaffa7a3a6a3d6f1fbf7fffab8f5f9fb">[email&#160;protected]</span></div></div>
             <span class="cl-arr">↗</span>
           </a>
           <a href="https://www.linkedin.com/in/venkatakarthikdesigner" target="_blank" class="c-link">
@@ -529,7 +531,7 @@ footer{padding:1.5rem 3rem;border-top:1px solid var(--border);background:var(--d
   </footer>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── LOADING ──
 const ls = document.getElementById('ls');
 
@@ -589,15 +591,4 @@ function initPortfolio() {
   function onScroll(){
     var wrap = img.closest('.about-photo-wrap');
     var rect = wrap.getBoundingClientRect();
-    var vh = window.innerHeight;
-    if(rect.bottom < 0 || rect.top > vh) return;
-    var progress = (vh - rect.top) / (vh + rect.height);
-    var shift = (progress - 0.5) * 28;
-    img.style.transform = 'translateY(' + shift + 'px)';
-  }
-  window.addEventListener('scroll', onScroll, {passive:true});
-  onScroll();
-})();
-</script>
-</body>
-</html>
+    var vh = window.innerHeig
