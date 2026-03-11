@@ -282,7 +282,7 @@ footer{padding:1.5rem 3rem;border-top:1px solid var(--border);background:var(--d
       <div class="h-btns">
         <a href="#work" class="btn-p">View Projects</a>
         <a href="#contact" class="btn-s">Contact →</a>
-        <a href="resume.pdf" download class="btn-s">Resume ↓</a>
+        <a href="resume.pdf" target="_blank" class="btn-s">Resume ↗</a>
       </div>
     </div>
 
@@ -504,7 +504,7 @@ footer{padding:1.5rem 3rem;border-top:1px solid var(--border);background:var(--d
             <div class="cl-info"><div class="cl-tag">LinkedIn</div><div class="cl-name">venkatakarthikdesigner</div></div>
             <span class="cl-arr">↗</span>
           </a>
-          <a href="resume.pdf" download class="c-link">
+          <a href="resume.pdf" target="_blank" class="c-link">
             <div class="cl-info"><div class="cl-tag">Resume</div><div class="cl-name">Download CV</div></div>
             <span class="cl-arr">↓</span>
           </a>
@@ -591,4 +591,15 @@ function initPortfolio() {
   function onScroll(){
     var wrap = img.closest('.about-photo-wrap');
     var rect = wrap.getBoundingClientRect();
-    var vh = window.innerHeig
+    var vh = window.innerHeight;
+    if(rect.bottom < 0 || rect.top > vh) return;
+    var progress = (vh - rect.top) / (vh + rect.height);
+    var shift = (progress - 0.5) * 28;
+    img.style.transform = 'translateY(' + shift + 'px)';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>
