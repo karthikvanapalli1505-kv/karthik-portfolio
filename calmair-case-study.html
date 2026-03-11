@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calm Air — Case Study · Karthik Vanapalli</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,700;0,800;0,900;1,700;1,900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#060810;--dark:#08091a;--card:#0c0e1e;--card2:#10122a;
+  --white:#f4f2ee;--muted:rgba(244,242,238,.45);--faint:rgba(244,242,238,.13);
+  --border:rgba(244,242,238,.08);--ac:#ff7b2e;
+  --acf:rgba(255,123,46,.06);--acb:rgba(255,123,46,.28)
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;background:rgba(6,8,16,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.n-logo{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:900;font-style:italic;color:var(--white);text-decoration:none}
+.n-logo span{color:var(--ac)}
+.n-back{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .18s}
+.n-back:hover{color:var(--ac)}
+.n-proj{font-size:.55rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,123,46,.5)}
+
+.cs-hero{min-height:86vh;padding:56px 0 0;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:linear-gradient(180deg,#040509 0%,#070918 100%)}
+.cs-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 62% 42%,rgba(255,123,46,.055),transparent 68%);pointer-events:none}
+.cs-hero-num{position:absolute;right:2%;top:50%;transform:translateY(-50%);font-family:'Barlow Condensed',sans-serif;font-size:clamp(20rem,36vw,44rem);font-weight:900;font-style:italic;color:rgba(255,123,46,.022);line-height:1;pointer-events:none;user-select:none}
+.cs-hero-inner{padding:0 3rem 5rem;max-width:1360px;margin:0 auto;width:100%;position:relative;z-index:2}
+.cs-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--ac);display:flex;align-items:center;gap:.7rem;margin-bottom:1.1rem}
+.cs-eyebrow::before{content:'';width:18px;height:2px;background:var(--ac)}
+.cs-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(3.8rem,9vw,10rem);font-weight:900;font-style:italic;letter-spacing:-.025em;line-height:.88;color:var(--white);margin-bottom:.8rem}
+.cs-title span{color:var(--ac)}
+.cs-subtitle{font-size:clamp(.9rem,1.2vw,1.05rem);font-weight:300;color:var(--muted);line-height:1.88;max-width:540px;margin-bottom:2.2rem}
+.cs-meta-row{display:flex;flex-wrap:wrap;border:1px solid var(--border);overflow:hidden}
+.cs-meta-item{padding:.85rem 1.5rem;border-right:1px solid var(--border);flex:1;min-width:110px}
+.cs-meta-item:last-child{border-right:none}
+.cs-meta-label{font-size:.42rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,123,46,.48);margin-bottom:.26rem}
+.cs-meta-val{font-family:'Barlow Condensed',sans-serif;font-size:.92rem;font-weight:700;color:var(--white)}
+
+.cs-content{max-width:1360px;margin:0 auto;padding:0 3rem}
+.cs-section{padding:4.5rem 0;border-top:1px solid var(--border)}
+.cs-s-label{font-family:'Barlow Condensed',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--ac);display:flex;align-items:center;gap:.65rem;margin-bottom:.9rem}
+.cs-s-label::before{content:'';width:16px;height:2px;background:var(--ac)}
+.cs-s-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,4.2vw,4.2rem);font-weight:900;font-style:italic;letter-spacing:-.02em;line-height:.9;color:var(--white);margin-bottom:1.3rem}
+.cs-s-title span{color:var(--ac)}
+.cs-body{font-size:.95rem;color:var(--muted);line-height:1.95;font-weight:300;max-width:700px}
+.cs-body p+p{margin-top:.85rem}
+.cs-body strong{color:var(--white);font-weight:500}
+
+.insights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);overflow:hidden;margin-top:1.8rem}
+.insight-card{background:var(--card);padding:1.8rem 1.6rem;position:relative;overflow:hidden}
+.insight-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ac);transform:scaleX(0);transform-origin:left;transition:transform .28s ease}
+.insight-card:hover::before{transform:scaleX(1)}
+.insight-n{font-family:'Barlow Condensed',sans-serif;font-size:2.6rem;font-weight:900;font-style:italic;color:rgba(255,123,46,.1);line-height:1;margin-bottom:.65rem}
+.insight-title{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:.4rem}
+.insight-body{font-size:.84rem;color:var(--muted);line-height:1.8}
+
+.diagram-wrap{margin-top:1.8rem;background:var(--card);border:1px solid var(--border);border-left:3px solid var(--ac);overflow:hidden}
+.diagram-wrap img{width:100%;display:block;object-fit:contain;background:var(--card2);padding:2rem}
+.diagram-cap{padding:.7rem 1.1rem;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,123,46,.44);border-top:1px solid var(--border)}
+
+.wf-intro{font-size:.9rem;color:var(--muted);line-height:1.9;max-width:680px;margin-bottom:2.2rem}
+.wf-rows{display:flex;flex-direction:column;gap:2px;background:var(--border)}
+.wf-row{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border)}
+.wf-cell{background:var(--card);overflow:hidden;position:relative}
+.wf-cell img{width:100%;display:block}
+.wf-cell:hover img{transform:scale(1.02)}
+.wf-cell-label{position:absolute;top:0;left:0;right:0;padding:.45rem .85rem;background:rgba(4,5,12,.82);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;z-index:2}
+.wf-badge{font-size:.46rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:.2rem .6rem;border:1px solid;border-radius:2px}
+.wf-badge.lo{color:rgba(255,255,255,.4);border-color:rgba(255,255,255,.12)}
+.wf-badge.hi{color:var(--ac);border-color:var(--acb)}
+.wf-screen-name{font-size:.5rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.28)}
+
+.screens-hero-wrap{margin-top:1.8rem;background:var(--card);border:1px solid var(--border);padding:2.5rem 2rem;display:flex;justify-content:center;overflow:hidden}
+.screens-hero-wrap img{max-width:100%;max-height:500px;object-fit:contain;border:1px solid rgba(255,255,255,.06);box-shadow:0 20px 55px rgba(0,0,0,.85)}
+.screens-sub-label{font-family:'Barlow Condensed',sans-serif;font-size:.52rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-top:1.8rem;margin-bottom:.7rem;color:rgba(255,123,46,.48)}
+.screens-row{display:grid;gap:2px;background:var(--border);overflow:hidden}
+.screens-row.g5{grid-template-columns:repeat(5,1fr)}
+.screens-row.g4{grid-template-columns:repeat(4,1fr)}
+.sc-cell{background:var(--card);overflow:visible;position:relative;cursor:zoom-in}
+.sc-cell img{width:100%;display:block}
+.sc-name{padding:.42rem .65rem;font-size:.42rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.2);border-top:1px solid var(--border);background:var(--card2)}
+/* Hover zoom overlay — shows full screen enlarged */
+.sc-cell .sc-zoom{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.92);z-index:999;width:min(88vw,1100px);background:var(--card);border:1px solid var(--border);box-shadow:0 40px 120px rgba(0,0,0,.95);opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s cubic-bezier(.16,1,.3,1)}
+.sc-cell:hover .sc-zoom{opacity:1;transform:translate(-50%,-50%) scale(1);pointer-events:none}
+.sc-zoom img{width:100%;display:block;aspect-ratio:1512/982;object-fit:cover;object-position:top}
+.sc-zoom-label{padding:.5rem 1rem;font-size:.52rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ac);background:var(--card2);border-top:1px solid var(--border)}
+/* Backdrop dim on hover */
+.sc-cell:hover::before{content:'';position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:998;pointer-events:none}
+
+.decisions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);margin-top:1.8rem;overflow:hidden}
+.decision-card{background:var(--card);padding:1.8rem 1.6rem}
+.dc-q{font-family:'Barlow Condensed',sans-serif;font-size:.98rem;font-weight:700;color:var(--ac);margin-bottom:.55rem;line-height:1.3}
+.dc-a{font-size:.84rem;color:var(--muted);line-height:1.8}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);margin-top:1.8rem;overflow:hidden}
+.ref-block{background:var(--card);padding:2rem 1.8rem;border-top:3px solid var(--ac)}
+.ref-label{font-size:.5rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ac);margin-bottom:.75rem}
+.ref-body{font-size:.86rem;color:var(--muted);line-height:1.85}
+.ref-body p+p{margin-top:.6rem}
+.ref-body li{margin-left:1.1rem;margin-bottom:.32rem}
+
+.proto-band{margin-top:3.5rem;padding:2.2rem 2.6rem;background:linear-gradient(120deg,rgba(255,123,46,.06),var(--card));border:1px solid var(--acb);display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.proto-text{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.3rem,2.4vw,2rem);font-weight:700;font-style:italic;color:var(--white)}
+.proto-text span{color:var(--ac)}
+.proto-btn{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:.82rem 2rem;background:var(--ac);color:#000;text-decoration:none;transition:background .18s,transform .18s;white-space:nowrap;display:inline-block}
+.proto-btn:hover{background:#e56d24;transform:translateY(-2px)}
+
+.back-band{display:flex;text-decoration:none;padding:2.8rem;background:var(--card);border:1px solid var(--border);margin-top:4.5rem;align-items:center;justify-content:space-between;gap:2rem;transition:background .2s,transform .2s}
+.back-band:hover{background:var(--card2);transform:translateY(-3px)}
+.np-label{font-size:.52rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+.np-name{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.6rem,2.8vw,2.8rem);font-weight:900;font-style:italic;color:var(--white)}
+.np-arr{font-size:1.8rem;color:var(--muted);transition:color .2s,transform .2s}
+.back-band:hover .np-arr{color:var(--ac);transform:translateX(-5px)}
+
+footer{padding:1.4rem 3rem;border-top:1px solid var(--border);background:var(--dark);display:flex;justify-content:space-between;align-items:center;margin-top:3rem}
+.f-l,.f-r{font-size:.58rem;color:rgba(255,255,255,.15);letter-spacing:.06em}
+.f-r a{color:rgba(255,123,46,.4);text-decoration:none}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.07s}.d2{transition-delay:.13s}.d3{transition-delay:.19s}
+
+@media(max-width:860px){
+  .cs-hero-inner,.cs-content{padding-left:1.3rem;padding-right:1.3rem}
+  nav{padding:0 1.3rem}
+  .wf-row{grid-template-columns:1fr}
+  .insights-grid,.decisions-grid{grid-template-columns:1fr}
+  .two-col{grid-template-columns:1fr}
+  .screens-row.g5,.screens-row.g4{grid-template-columns:repeat(3,1fr)}
+  .cs-meta-row{flex-direction:column}.cs-meta-item{border-right:none;border-bottom:1px solid var(--border)}
+  .proto-band{flex-direction:column;text-align:center}
+  footer{flex-direction:column;gap:.28rem;text-align:center;padding:.9rem 1.3rem}
+}
+
+/* ── PHONE FRAME ── */
+.phone-frame{position:relative;display:inline-block;width:100%}
+.phone-frame::before{content:'';position:absolute;inset:-10px -8px;border:2px solid rgba(255,255,255,.12);border-radius:28px;z-index:2;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.04),0 0 0 8px rgba(0,0,0,.6),0 0 30px rgba(255,255,255,.03)}
+.phone-frame::after{content:'';position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:60px;height:5px;background:rgba(255,255,255,.15);border-radius:0 0 4px 4px;z-index:3}
+.phone-frame img{width:100%;display:block;aspect-ratio:390/844;object-fit:cover;object-position:top;transition:transform .28s ease;border-radius:20px}
+.phone-frame-3h img{aspect-ratio:390/837}
+
+/* ── BROWSER FRAME ── */
+.browser-frame{position:relative;width:100%;background:#1a1a1a;border-radius:8px 8px 0 0;overflow:hidden}
+.browser-bar{height:28px;background:#2a2a2a;display:flex;align-items:center;padding:0 10px;gap:5px;border-bottom:1px solid rgba(255,255,255,.06)}
+.browser-dot{width:8px;height:8px;border-radius:50%}
+.browser-dot.r{background:#ff5f57}
+.browser-dot.y{background:#ffbd2e}
+.browser-dot.g{background:#28ca41}
+.browser-url{margin-left:8px;flex:1;background:rgba(255,255,255,.06);border-radius:3px;height:14px;max-width:240px}
+.browser-frame img{width:100%;display:block;aspect-ratio:1512/982;object-fit:cover;object-position:top;transition:transform .28s ease}
+.browser-frame-wf img{aspect-ratio:1512/982}
+
+/* ── LAPTOP FRAME ── */
+.laptop-frame{position:relative;width:100%}
+.laptop-screen{background:#111;border-radius:12px 12px 0 0;overflow:hidden;border:2px solid rgba(255,255,255,.1);border-bottom:none;box-shadow:0 0 0 1px rgba(255,255,255,.04)}
+.laptop-screen img{width:100%;display:block;aspect-ratio:1512/982;object-fit:cover;object-position:top;transition:transform .28s ease}
+.laptop-base{height:14px;background:linear-gradient(180deg,#2a2a2a,#1a1a1a);border-radius:0 0 6px 6px;border:1px solid rgba(255,255,255,.08);border-top:none;position:relative}
+.laptop-base::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:32%;height:5px;background:#222;border-radius:4px 4px 0 0}
+.laptop-notch{height:6px;background:#1a1a1a;display:flex;align-items:center;justify-content:center;border-bottom:1px solid rgba(255,255,255,.06)}
+.laptop-notch::before{content:'';width:40px;height:3px;background:rgba(255,255,255,.08);border-radius:2px}
+.laptop-stand{width:40%;height:8px;background:linear-gradient(180deg,#222,#1a1a1a);margin:0 auto;border-radius:0 0 8px 8px;border:1px solid rgba(255,255,255,.06);border-top:none}
+.laptop-foot{width:55%;height:4px;background:#181818;margin:0 auto;border-radius:0 0 4px 4px;border:1px solid rgba(255,255,255,.05);border-top:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="n-logo">Karthik <span>VV</span></a>
+  <div class="n-proj">03 · Calm Air · Travel UX</div>
+  <a href="index.html" class="n-back">← All Work</a>
+</nav>
+
+<section class="cs-hero">
+  <div class="cs-hero-num">03</div>
+  <div class="cs-hero-inner">
+    <div class="cs-eyebrow">Case Study 03 · Travel UX · Desktop Web</div>
+    <h1 class="cs-title">Calm <span>Air</span></h1>
+    <p class="cs-subtitle">A step-by-step guidance platform for first-time international students arriving in the UK — replacing 12+ scattered pages with one calm, structured journey.</p>
+    <div class="cs-meta-row">
+      <div class="cs-meta-item"><div class="cs-meta-label">Role</div><div class="cs-meta-val">Sole Product Designer</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-label">Duration</div><div class="cs-meta-val">3 Weeks</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-label">Platform</div><div class="cs-meta-val">Desktop Web</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-label">Tools</div><div class="cs-meta-val">Figma · FigJam</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-label">Type</div><div class="cs-meta-val">End-to-End Design</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="cs-content">
+
+  <section class="cs-section reveal">
+    <div class="cs-s-label">The Problem</div>
+    <h2 class="cs-s-title">First-time arrival<br>is <span>overwhelming</span></h2>
+    <div class="cs-body">
+      <p>International students arriving in the UK for the first time face a series of critical steps — passport control, biometric verification, baggage, customs, transport — in rapid succession, in an unfamiliar environment, often after a 10+ hour flight. <strong>The information exists, but it is scattered across 12+ government, university, and airline websites.</strong></p>
+      <p>Students land in a high-stress situation without a single reliable source of truth. Calm Air was designed to fix this — a 9-level progressive guidance platform that walks students through every step of UK airport arrival, one screen at a time.</p>
+    </div>
+  </section>
+
+  <section class="cs-section reveal">
+    <div class="cs-s-label">Story / Context</div>
+    <h2 class="cs-s-title">Where the<br><span>gap</span> was found</h2>
+    <div class="cs-body">
+      <p>The insight came directly from personal experience arriving in the UK as an international student. The formal guidance was scattered, inconsistent, and assumed prior knowledge. The unofficial guidance — YouTube videos, Reddit threads, university Facebook groups — was helpful but unreliable and hard to navigate under pressure.</p>
+      <p>The real gap was not missing information. It was <strong>missing structure.</strong> Students needed a guided sequence, not a search engine. Calm Air provides that structure — progressive disclosure at each stage, showing only what is relevant right now.</p>
+    </div>
+  </section>
+
+  <section class="cs-section reveal">
+    <div class="cs-s-label">Research</div>
+    <h2 class="cs-s-title">Three key<br><span>user insights</span></h2>
+    <div class="insights-grid">
+      <div class="insight-card reveal d1">
+        <div class="insight-n">01</div>
+        <div class="insight-title">Information overload causes paralysis</div>
+        <div class="insight-body">Students shown all arrival steps simultaneously reported higher anxiety than those given one step at a time. Progressive disclosure — showing only the current step — reduces cognitive load at the exact moment it matters most.</div>
+      </div>
+      <div class="insight-card reveal d2">
+        <div class="insight-n">02</div>
+        <div class="insight-title">Progress visibility reduces anxiety</div>
+        <div class="insight-body">Knowing "I am at step 4 of 9" provides control. Students reported that a visible progress tracker transformed the arrival experience from "unknown duration chaos" to "a managed process with an end in sight."</div>
+      </div>
+      <div class="insight-card reveal d3">
+        <div class="insight-n">03</div>
+        <div class="insight-title">Document prep anxiety starts before the airport</div>
+        <div class="insight-body">Many students were unsure which documents to carry and in what order to present them. A document preparation section before Level 1 was added to address this — reducing uncertainty before the journey even begins.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section reveal">
+    <div class="cs-s-label">Information Architecture</div>
+    <h2 class="cs-s-title">How the platform<br>is <span>structured</span></h2>
+    <div class="cs-body"><p>The IA is a linear nine-level hierarchy mapping the exact physical journey through a UK airport — from landing gate to exit. Each level corresponds to one real-world location or checkpoint. Users cannot skip levels, ensuring they never arrive at a checkpoint unprepared.</p></div>
+    <div class="diagram-wrap">
+      <img src="ca_ia.png" alt="Calm Air Information Architecture">
+      <div class="diagram-cap">Calm Air · Information Architecture — 9-Level Structure</div>
+    </div>
+  </section>
+
+  <section class="cs-section reveal">
+    <div class="cs-s-label">User Flow</div>
+    <h2 class="cs-s-title">The complete<br><span>arrival journey</span></h2>
+    <div class="cs-body"><p>The main flow maps the student from document prep through all nine physical checkpoints to final exit. Each level unlocks only when the previous level is marked complete — enforcing the linear journey that mirrors the real airport process.</p></div>
+    <div class="diagram-wrap">
+      <img src="ca_userflow.png" alt="Calm Air User Flow">
+      <div class="diagram-cap">Calm Air · Complete Arrival Flow</div>
+    </div>
+  </section>
+
+  <!-- WIREFRAMES VS FINAL UI -->
+  <section class="cs-section reveal">
+    <div class="cs-s-label">Wireframes</div>
+    <h2 class="cs-s-title">From Wireframe<br>to <span>Final UI</span></h2>
+    <p class="wf-intro">Four screens show the evolution from structural wireframes to high-fidelity desktop UI. The layout decisions — progressive disclosure, step indicators, single-action panels — were locked in at wireframe stage before visual design began.</p>
+
+    <div class="wf-rows">
+
+      <div class="wf-row">
+        <div class="wf-cell">
+          <div class="wf-cell-label">
+            <span class="wf-badge lo">Low-Fi Wireframe</span>
+            <span class="wf-screen-name">Level 1 — Landing Gate</span>
+          </div>
+          <div class="browser-frame browser-frame-wf"><div class="browser-bar"><div class="browser-dot r"></div><div class="browser-dot y"></div><div class="browser-dot g"></div><div class="browser-url"></div></div><img src="cawf_l1.png" alt="Level 1 Wireframe"></div>
+        </div>
+        <div class="wf-cell">
+          <div class="wf-cell-label">
+            <span class="wf-badge hi">Final UI</span>
+            <span class="wf-screen-name">Level 1 — Landing Gate</span>
+          </div>
+          <div class="browser-frame browser-frame-wf"><div class="browser-bar"><div class="browser-dot r"></div><div class="browser-dot y"></div><div class="browser-dot g"></div><div class="browser-url"></div></div><img src="ca_l1.png" alt="Level 1 Final"></div>
+        </div>
+      </div>
+
+      <div class="wf-row">
+        <div class="wf-cell">
+          <div class="wf-cell-label">
+            <span class="wf-badge lo">Low-Fi Wireframe</span>
+            <span class="wf-screen-name">Level 2 — Immigration</span>
+          </div>
+          <div class="browser-frame browser-frame-wf"><div class="browser-bar"><div class="browser-dot r"></div><div class="browser-dot y"></div><div class="browser-dot g"></div><div class="browser-url"></div></div><img src="cawf_l2.png" alt="Level 2 Wireframe"></div>
+        </div>
+        <div class="wf-cell">
+          <div class="wf-cell-label">
+            <span class="wf-badge hi">Final UI</span>
+            <span class="wf-screen-name">Level 2 — Immigration</span>
+          </div>
+          <div class="browser-frame browser-frame-wf"><div class="browser-bar"><div class="browser-dot r"></div><div class="browser-dot y"></div><div class="browser-dot g"></div><div class="browser-url"></div></div><img src="ca_l2.png" alt="Level 2 Final"></div>
+        </div>
+      </div>
+
+      <div class="wf-row">
+        <div class="wf-cell">
+          <div class="wf-cell-label">
+            <span class="wf-badge lo">Low-Fi Wireframe</span>
+            <span class="wf-screen-name">Level 4 — Baggage</span>
+          </div>
+          <div class="browser-frame browser-frame-wf"><div class="browser-bar"><div class="browser-dot r"></div><div class="browser-dot y"></div><div class="browser-dot g"></div><div class="browser-url"></div></div><img src="cawf_l4.png" alt="Level 4 Wireframe"></div>
+        </div>
+        <div class="wf-cell">
+          <div class="wf-cell-label">
+            <span class="wf-badge hi">Final UI</span>
+            <span class="wf-screen-name">Level 4 — Baggage</span>
+          </div>
+          <div class="browser-frame browser-frame-wf"><div class="browser-bar"><div class="browser-dot r"></div><div class="browser-dot y"></div><div class="browser-dot g"></div><div class="browser-url"></div></div><img src="ca_l4.png" alt="Level 4 Final"></div>
+        </div>
+      </div>
+
+      <div class="wf-row">
+        <div class="wf-cell">
+          <div class="wf-cell-label">
+            <span class="wf-badge lo">Low-Fi Wireframe</span>
+            <span class="wf-screen-name">Level 7 — Transport</span>
+          </div>
+          <div class="browser-frame browser-frame-wf"><div class="browser-bar"><div class="browser-dot r"></div><div class="browser-dot y"></div><div class="browser-dot g"></div><div class="browser-url"></div></div><img src="cawf_l7.png" alt="Level 7 Wireframe"></div>
+        </div>
+        <div class="wf-cell">
+          <div class="wf-cell-label">
+            <span class="wf-badge hi">Final UI</span>
+            <span class="wf-screen-name">Level 7 — Transport</span>
+          </div>
+          <div class="browser-frame browser-frame-wf"><div class="browser-bar"><div class="browser-dot r"></div><div class="browser-dot y"></div><div class="browser-dot g"></div><div class="browser-url"></div></div><img src="ca_l7.png" alt="Level 7 Final"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FINAL SCREENS -->
+  <section class="cs-section reveal">
+    <div class="cs-s-label">Final Screens</div>
+    <h2 class="cs-s-title">The complete<br><span>UI</span></h2>
+
+    <div class="screens-hero-wrap" style="background:transparent;border:none;padding:2rem 4rem">
+      <div class="laptop-frame" style="max-width:680px;margin:0 auto">
+        <div class="laptop-screen"><img src="ca_l2.png" alt="Calm Air Level 2 — Hero Screen"></div>
+        <div class="laptop-notch"></div><div class="laptop-base"></div><div class="laptop-stand"></div><div class="laptop-foot"></div>
+      </div>
+    </div>
+
+    <div class="screens-sub-label">Core Arrival Journey</div>
+    <div class="screens-row g4" style="grid-template-columns:repeat(2,1fr)">
+      <div class="sc-cell"><div class="laptop-frame"><div class="laptop-screen"><img src="ca_l1.png" alt="L1"></div><div class="laptop-notch"></div><div class="laptop-base"></div><div class="laptop-stand"></div><div class="laptop-foot"></div></div><div class="sc-zoom"><div class="laptop-frame"><div class="laptop-screen"><img src="ca_l1.png" alt="L1 — Landing Gate"></div><div class="laptop-notch"></div><div class="laptop-base"></div><div class="laptop-stand"></div><div class="laptop-foot"></div></div><div class="sc-zoom-label">L1 — Landing Gate</div></div><div class="sc-name">L1 — Landing Gate</div></div>
+      <div class="sc-cell"><div class="laptop-frame"><div class="laptop-screen"><img src="ca_l2.png" alt="L2"></div><div class="laptop-notch"></div><div class="laptop-base"></div><div class="laptop-stand"></div><div class="laptop-foot"></div></div><div class="sc-zoom"><div class="laptop-frame"><div class="laptop-screen"><img src="ca_l2.png" alt="L2 — Immigration"></div><div class="laptop-notch"></div><div class="laptop-base"></div><div class="laptop-stand"></div><div class="laptop-foot"></div></div><div class="sc-zoom-label">L2 — Immigration</div></div><div class="sc-name">L2 — Immigration</div></div>
+      <div class="sc-cell"><div class="laptop-frame"><div class="laptop-screen"><img src="ca_l4.png" alt="L4"></div><div class="laptop-notch"></div><div class="laptop-base"></div><div class="laptop-stand"></div><div class="laptop-foot"></div></div><div class="sc-zoom"><div class="laptop-frame"><div class="laptop-screen"><img src="ca_l4.png" alt="L4 — Baggage Claim"></div><div class="laptop-notch"></div><div class="laptop-base"></div><div class="laptop-stand"></div><div class="laptop-foot"></div></div><div class="sc-zoom-label">L4 — Baggage Claim</div></div><div class="sc-name">L4 — Baggage Claim</div></div>
+      <div class="sc-cell"><div class="laptop-frame"><div class="laptop-screen"><img src="ca_l7.png" alt="L7"></div><div class="laptop-notch"></div><div class="laptop-base"></div><div class="laptop-stand"></div><div class="laptop-foot"></div></div><div class="sc-zoom"><div class="laptop-frame"><div class="laptop-screen"><img src="ca_l7.png" alt="L7 — Transport"></div><div class="laptop-notch"></div><div class="laptop-base"></div><div class="laptop-stand"></div><div class="laptop-foot"></div></div><div class="sc-zoom-label">L7 — Transport</div></div><div class="sc-name">L7 — Transport</div></div>
+    </div>
+
+    <div class="screens-sub-label">Document Preparation</div>
+    <div class="screens-row g4" style="grid-template-columns:repeat(3,1fr)">
+      <div class="sc-cell"><div class="laptop-frame"><div class="laptop-screen"><img src="ca_doc_l2.png" alt="Doc Checklist"></div><div class="laptop-notch"></div><div class="laptop-base"></div><div class="laptop-stand"></div><div class="laptop-foot"></div></div><div class="sc-zoom"><div class="laptop-frame"><div class="laptop-screen"><img src="ca_doc_l2.png" alt="Document Checklist"></div><div class="laptop-notch"></div><div class="laptop-base"></div><div class="laptop-stand"></div><div class="laptop-foot"></div></div><div class="sc-zoom-label">Document Checklist</div></div><div class="sc-name">Document Checklist</div></div>
+      <div class="sc-cell"><div class="laptop-frame"><div class="laptop-screen"><img src="ca_doc_screening.png" alt="Doc Screening"></div><div class="laptop-notch"></div><div class="laptop-base"></div><div class="laptop-stand"></div><div class="laptop-foot"></div></div><div class="sc-zoom"><div class="laptop-frame"><div class="laptop-screen"><img src="ca_doc_screening.png" alt="Airport Security Documents"></div><div class="laptop-notch"></div><div class="laptop-base"></div><div class="laptop-stand"></div><div class="laptop-foot"></div></div><div class="sc-zoom-label">Airport Security Documents</div></div><div class="sc-name">Airport Security Documents</div></div>
+      <div class="sc-cell"><div class="laptop-frame"><div class="laptop-screen"><img src="ca_doc_immigration.png" alt="Doc Immigration"></div><div class="laptop-notch"></div><div class="laptop-base"></div><div class="laptop-stand"></div><div class="laptop-foot"></div></div><div class="sc-zoom"><div class="laptop-frame"><div class="laptop-screen"><img src="ca_doc_immigration.png" alt="Immigration Documents"></div><div class="laptop-notch"></div><div class="laptop-base"></div><div class="laptop-stand"></div><div class="laptop-foot"></div></div><div class="sc-zoom-label">Immigration Documents</div></div><div class="sc-name">Immigration Documents</div></div>
+    </div>
+  </section>
+
+  <!-- DESIGN DECISIONS -->
+  <section class="cs-section reveal">
+    <div class="cs-s-label">Design Decisions</div>
+    <h2 class="cs-s-title">Why these<br><span>choices</span> were made</h2>
+    <div class="decisions-grid">
+      <div class="decision-card reveal d1">
+        <div class="dc-q">Why a linear locked flow — not free navigation?</div>
+        <div class="dc-a">Free navigation creates decision fatigue at the worst possible moment. The airport journey is physically linear — the product mirrors that reality. Unlocking levels in sequence means students are always prepared for where they are, not lost in what comes later.</div>
+      </div>
+      <div class="decision-card reveal d2">
+        <div class="dc-q">Why progressive disclosure per level?</div>
+        <div class="dc-a">Showing all nine levels simultaneously caused anxiety in early testing. Each level shows only the information relevant to that checkpoint — one action, one context. Complexity is managed by revealing it gradually.</div>
+      </div>
+      <div class="decision-card reveal d3">
+        <div class="dc-q">Why a document prep section before Level 1?</div>
+        <div class="dc-a">Testing showed students were anxious about documents before they even reached the gate. A pre-arrival document checklist removed that anxiety at source — turning an unknown into a confirmed, ready state before the physical journey began.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFLECTION + NEXT STEPS -->
+  <section class="cs-section reveal">
+    <div class="cs-s-label">Reflection &amp; Next Steps</div>
+    <h2 class="cs-s-title">What I <span>learned</span></h2>
+    <div class="two-col">
+      <div class="ref-block">
+        <div class="ref-label">Reflection</div>
+        <div class="ref-body">
+          <p>Calm Air taught me that structure itself is a form of care. When a product removes uncertainty at a stressful moment, the user feels supported — even if the design is invisible.</p>
+          <p>The hardest design decision was what to exclude. Every level could have included more information. The discipline was in showing the minimum viable guidance at each step.</p>
+        </div>
+      </div>
+      <div class="ref-block">
+        <div class="ref-label">Next Steps</div>
+        <div class="ref-body">
+          <ul>
+            <li>Mobile version for in-airport use on phone</li>
+            <li>Airport-specific variants (Heathrow T2, T5, Gatwick, etc.)</li>
+            <li>Offline mode for areas with poor airport WiFi</li>
+            <li>University integration — pre-arrival email link</li>
+            <li>Multilingual support — Hindi, Mandarin, Arabic</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="proto-band reveal">
+    <div class="proto-text">View the <span>interactive prototype</span> in Figma</div>
+    <a href="https://www.figma.com/proto/pKWuWHdJAUTjLcdCv6r4P9/CALM-AIR?page-id=48%3A181&node-id=76-32&viewport=866%2C303%2C0.23&t=5Lb3ioZF82tWhQJx-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=76%3A32" target="_blank" class="proto-btn">Open Prototype ↗</a>
+  </div>
+
+  <a href="index.html" class="back-band reveal">
+    <div>
+      <div class="np-label">Back to Portfolio</div>
+      <div class="np-name">View All Projects</div>
+    </div>
+    <div class="np-arr">←</div>
+  </a>
+
+</div>
+
+<footer>
+  <div class="f-l">Calm Air · Case Study 03 · Karthik Vanapalli</div>
+  <div class="f-r"><a href="index.html">← Back to Portfolio</a></div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) e.target.classList.add('in');
+}), { threshold: 0.06 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

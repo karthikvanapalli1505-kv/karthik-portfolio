@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3H Community Assistance — Case Study · Karthik Vanapalli</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,700;0,800;0,900;1,700;1,900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#080808;--dark:#0a0f0c;--card:#101410;--card2:#141a14;
+  --white:#f4f2ee;--muted:rgba(244,242,238,.45);--faint:rgba(244,242,238,.13);
+  --border:rgba(244,242,238,.08);--ac:#22c55e;
+  --acf:rgba(34,197,94,.06);--acb:rgba(34,197,94,.28)
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;background:rgba(8,8,8,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.n-logo{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:900;font-style:italic;color:var(--white);text-decoration:none}
+.n-logo span{color:var(--ac)}
+.n-back{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .18s}
+.n-back:hover{color:var(--ac)}
+.n-proj{font-size:.55rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(34,197,94,.5)}
+
+.cs-hero{min-height:86vh;padding:56px 0 0;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:linear-gradient(180deg,#060a07 0%,#090e0a 100%)}
+.cs-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 62% 42%,rgba(34,197,94,.055),transparent 68%);pointer-events:none}
+.cs-hero-num{position:absolute;right:2%;top:50%;transform:translateY(-50%);font-family:'Barlow Condensed',sans-serif;font-size:clamp(20rem,36vw,44rem);font-weight:900;font-style:italic;color:rgba(34,197,94,.02);line-height:1;pointer-events:none;user-select:none}
+.cs-hero-inner{padding:0 3rem 5rem;max-width:1360px;margin:0 auto;width:100%;position:relative;z-index:2}
+.cs-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--ac);display:flex;align-items:center;gap:.7rem;margin-bottom:1.1rem}
+.cs-eyebrow::before{content:'';width:18px;height:2px;background:var(--ac)}
+.cs-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(3.8rem,9vw,10rem);font-weight:900;font-style:italic;letter-spacing:-.025em;line-height:.88;color:var(--white);margin-bottom:.8rem}
+.cs-title span{color:var(--ac)}
+.cs-subtitle{font-size:clamp(.9rem,1.2vw,1.05rem);font-weight:300;color:var(--muted);line-height:1.88;max-width:540px;margin-bottom:2.2rem}
+.cs-meta-row{display:flex;flex-wrap:wrap;border:1px solid var(--border);overflow:hidden}
+.cs-meta-item{padding:.85rem 1.5rem;border-right:1px solid var(--border);flex:1;min-width:110px}
+.cs-meta-item:last-child{border-right:none}
+.cs-meta-label{font-size:.42rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(34,197,94,.48);margin-bottom:.26rem}
+.cs-meta-val{font-family:'Barlow Condensed',sans-serif;font-size:.92rem;font-weight:700;color:var(--white)}
+
+.cs-content{max-width:1360px;margin:0 auto;padding:0 3rem}
+.cs-section{padding:4.5rem 0;border-top:1px solid var(--border)}
+.cs-s-label{font-family:'Barlow Condensed',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--ac);display:flex;align-items:center;gap:.65rem;margin-bottom:.9rem}
+.cs-s-label::before{content:'';width:16px;height:2px;background:var(--ac)}
+.cs-s-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,4.2vw,4.2rem);font-weight:900;font-style:italic;letter-spacing:-.02em;line-height:.9;color:var(--white);margin-bottom:1.3rem}
+.cs-s-title span{color:var(--ac)}
+.cs-body{font-size:.95rem;color:var(--muted);line-height:1.95;font-weight:300;max-width:700px}
+.cs-body p+p{margin-top:.85rem}
+.cs-body strong{color:var(--white);font-weight:500}
+
+.insights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);overflow:hidden;margin-top:1.8rem}
+.insight-card{background:var(--card);padding:1.8rem 1.6rem;position:relative;overflow:hidden}
+.insight-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ac);transform:scaleX(0);transform-origin:left;transition:transform .28s ease}
+.insight-card:hover::before{transform:scaleX(1)}
+.insight-n{font-family:'Barlow Condensed',sans-serif;font-size:2.6rem;font-weight:900;font-style:italic;color:rgba(34,197,94,.1);line-height:1;margin-bottom:.65rem}
+.insight-title{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:.4rem}
+.insight-body{font-size:.84rem;color:var(--muted);line-height:1.8}
+
+.diagram-wrap{margin-top:1.8rem;background:var(--card);border:1px solid var(--border);border-left:3px solid var(--ac);overflow:hidden}
+.diagram-wrap img{width:100%;display:block;object-fit:contain;background:var(--card2);padding:2rem}
+.diagram-cap{padding:.7rem 1.1rem;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(34,197,94,.44);border-top:1px solid var(--border)}
+
+.wf-intro{font-size:.9rem;color:var(--muted);line-height:1.9;max-width:680px;margin-bottom:2.2rem}
+.wf-rows{display:flex;flex-direction:column;gap:2px;background:var(--border)}
+.wf-row{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border)}
+.wf-cell{background:var(--card);overflow:hidden;position:relative}
+.wf-cell img{width:100%;display:block;border-radius:20px}
+.wf-cell:hover img{transform:scale(1.02)}
+.wf-cell-label{position:absolute;top:0;left:0;right:0;padding:.45rem .85rem;background:rgba(6,10,7,.8);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;z-index:2}
+.wf-badge{font-size:.46rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:.2rem .6rem;border:1px solid;border-radius:2px}
+.wf-badge.lo{color:rgba(255,255,255,.4);border-color:rgba(255,255,255,.12)}
+.wf-badge.hi{color:var(--ac);border-color:var(--acb)}
+.wf-screen-name{font-size:.5rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.28)}
+
+.screens-hero-wrap{margin-top:1.8rem;background:var(--card);border:1px solid var(--border);padding:3rem 2rem;display:flex;justify-content:center;align-items:flex-start}
+.screens-hero-wrap img{width:220px;border-radius:16px;border:1px solid rgba(255,255,255,.07);box-shadow:0 20px 55px rgba(0,0,0,.8)}
+.screens-sub-label{font-family:'Barlow Condensed',sans-serif;font-size:.52rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-top:1.8rem;margin-bottom:.7rem;color:rgba(34,197,94,.48)}
+.screens-row{display:grid;gap:2px;background:var(--border);overflow:hidden}
+.screens-row.g7{grid-template-columns:repeat(4,1fr)}
+.screens-row.g5{grid-template-columns:repeat(5,1fr)}
+.screens-row.g4{grid-template-columns:repeat(4,1fr)}
+.sc-cell{background:var(--card);overflow:hidden}
+.sc-cell img{width:100%;display:block;border-radius:20px}
+.sc-cell:hover img{transform:scale(1.03)}
+.sc-name{padding:.42rem .65rem;font-size:.42rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.2);border-top:1px solid var(--border);background:var(--card2)}
+
+.decisions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);margin-top:1.8rem;overflow:hidden}
+.decision-card{background:var(--card);padding:1.8rem 1.6rem}
+.dc-q{font-family:'Barlow Condensed',sans-serif;font-size:.98rem;font-weight:700;color:var(--ac);margin-bottom:.55rem;line-height:1.3}
+.dc-a{font-size:.84rem;color:var(--muted);line-height:1.8}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);margin-top:1.8rem;overflow:hidden}
+.ref-block{background:var(--card);padding:2rem 1.8rem;border-top:3px solid var(--ac)}
+.ref-label{font-size:.5rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ac);margin-bottom:.75rem}
+.ref-body{font-size:.86rem;color:var(--muted);line-height:1.85}
+.ref-body p+p{margin-top:.6rem}
+.ref-body li{margin-left:1.1rem;margin-bottom:.32rem}
+
+.proto-band{margin-top:3.5rem;padding:2.2rem 2.6rem;background:linear-gradient(120deg,rgba(34,197,94,.06),var(--card));border:1px solid var(--acb);display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.proto-text{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.3rem,2.4vw,2rem);font-weight:700;font-style:italic;color:var(--white)}
+.proto-text span{color:var(--ac)}
+.proto-btn{font-family:'Barlow Condensed',sans-serif;font-size:.78rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;padding:.82rem 2rem;background:var(--ac);color:#000;text-decoration:none;transition:background .18s,transform .18s;white-space:nowrap;display:inline-block}
+.proto-btn:hover{background:#16a34a;transform:translateY(-2px)}
+
+.next-proj{display:flex;text-decoration:none;padding:2.8rem;background:var(--card);border:1px solid var(--border);margin-top:4.5rem;align-items:center;justify-content:space-between;gap:2rem;transition:background .2s,transform .2s}
+.next-proj:hover{background:var(--card2);transform:translateY(-3px)}
+.np-label{font-size:.52rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+.np-name{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.6rem,2.8vw,2.8rem);font-weight:900;font-style:italic;color:var(--white)}
+.np-arr{font-size:1.8rem;color:var(--muted);transition:color .2s,transform .2s}
+.next-proj:hover .np-arr{color:var(--ac);transform:translateX(5px)}
+
+footer{padding:1.4rem 3rem;border-top:1px solid var(--border);background:var(--dark);display:flex;justify-content:space-between;align-items:center;margin-top:3rem}
+.f-l,.f-r{font-size:.58rem;color:rgba(255,255,255,.15);letter-spacing:.06em}
+.f-r a{color:rgba(34,197,94,.4);text-decoration:none}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.07s}.d2{transition-delay:.13s}.d3{transition-delay:.19s}
+
+@media(max-width:860px){
+  .cs-hero-inner,.cs-content{padding-left:1.3rem;padding-right:1.3rem}
+  nav{padding:0 1.3rem}
+  .wf-row{grid-template-columns:1fr}
+  .insights-grid,.decisions-grid{grid-template-columns:1fr}
+  .two-col{grid-template-columns:1fr}
+  .screens-row.g7,.screens-row.g5,.screens-row.g4{grid-template-columns:repeat(2,1fr)}
+  .cs-meta-row{flex-direction:column}.cs-meta-item{border-right:none;border-bottom:1px solid var(--border)}
+  .proto-band{flex-direction:column;text-align:center}
+  footer{flex-direction:column;gap:.28rem;text-align:center;padding:.9rem 1.3rem}
+}
+
+/* ── PHONE FRAME ── */
+.phone-frame{position:relative;display:inline-block;width:100%}
+.phone-frame::before{content:'';position:absolute;inset:-10px -8px;border:2px solid rgba(255,255,255,.12);border-radius:28px;z-index:2;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.04),0 0 0 8px rgba(0,0,0,.6),0 0 30px rgba(255,255,255,.03)}
+.phone-frame::after{content:'';position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:60px;height:5px;background:rgba(255,255,255,.15);border-radius:0 0 4px 4px;z-index:3}
+.phone-frame img{width:100%;display:block;aspect-ratio:390/844;object-fit:cover;object-position:top;transition:transform .28s ease;border-radius:20px}
+.phone-frame-3h img{aspect-ratio:390/837}
+
+/* ── BROWSER FRAME ── */
+.browser-frame{position:relative;width:100%;background:#1a1a1a;border-radius:8px 8px 0 0;overflow:hidden}
+.browser-bar{height:28px;background:#2a2a2a;display:flex;align-items:center;padding:0 10px;gap:5px;border-bottom:1px solid rgba(255,255,255,.06)}
+.browser-dot{width:8px;height:8px;border-radius:50%}
+.browser-dot.r{background:#ff5f57}
+.browser-dot.y{background:#ffbd2e}
+.browser-dot.g{background:#28ca41}
+.browser-url{margin-left:8px;flex:1;background:rgba(255,255,255,.06);border-radius:3px;height:14px;max-width:240px}
+.browser-frame img{width:100%;display:block;aspect-ratio:1512/982;object-fit:cover;object-position:top;transition:transform .28s ease}
+.browser-frame-wf img{aspect-ratio:1512/982}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="n-logo">Karthik <span>VV</span></a>
+  <div class="n-proj">01 · 3H · Social Impact</div>
+  <a href="index.html" class="n-back">← All Work</a>
+</nav>
+
+<section class="cs-hero">
+  <div class="cs-hero-num">01</div>
+  <div class="cs-hero-inner">
+    <div class="cs-eyebrow">Case Study 01 · Social Impact · Mobile App</div>
+    <h1 class="cs-title"><span>3H</span> — Community<br>Assistance</h1>
+    <p class="cs-subtitle">A mobile app connecting people in crisis with nearby community helpers — fast, private, and built for offline-first rural areas.</p>
+    <div class="cs-meta-row">
+      <div class="cs-meta-item"><div class="cs-meta-label">Role</div><div class="cs-meta-val">Sole Product Designer</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-label">Duration</div><div class="cs-meta-val">4 Weeks</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-label">Platform</div><div class="cs-meta-val">Mobile iOS</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-label">Tools</div><div class="cs-meta-val">Figma · FigJam</div></div>
+      <div class="cs-meta-item"><div class="cs-meta-label">Type</div><div class="cs-meta-val">End-to-End Design</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="cs-content">
+
+  <section class="cs-section reveal">
+    <div class="cs-s-label">The Problem</div>
+    <h2 class="cs-s-title">Help exists nearby —<br>but <span>no one knows</span></h2>
+    <div class="cs-body">
+      <p>In communities dealing with humanitarian crises — flooding, food shortage, injury, displacement — help is often nearby but invisible. <strong>People needing assistance don't know who to contact.</strong> People willing to help don't know where to go. WhatsApp groups and Facebook posts are the default, but they are chaotic, slow, and expose the person in need to public visibility.</p>
+      <p>3H was designed to solve this: a structured, private, location-based system that connects people in crisis with verified nearby helpers — without requiring internet connectivity in the moment of need.</p>
+    </div>
+  </section>
+
+  <section class="cs-section reveal">
+    <div class="cs-s-label">Story / Context</div>
+    <h2 class="cs-s-title">How the<br><span>idea</span> emerged</h2>
+    <div class="cs-body">
+      <p>The concept came from observing how humanitarian aid actually gets distributed in rural and semi-urban communities. Official channels are slow. WhatsApp groups work but create noise, privacy issues, and no accountability. People fall through the gaps — not because help doesn't exist, but because <strong>the request never reaches the right person.</strong></p>
+      <p>3H models the structure of existing informal networks — neighbours, community groups, local volunteers — but gives them a private, reliable, and accountable digital layer. The goal was to make the system feel familiar, not technological.</p>
+    </div>
+  </section>
+
+  <section class="cs-section reveal">
+    <div class="cs-s-label">Research</div>
+    <h2 class="cs-s-title">Three key<br><span>user insights</span></h2>
+    <div class="insights-grid">
+      <div class="insight-card reveal d1">
+        <div class="insight-n">01</div>
+        <div class="insight-title">Privacy protects dignity</div>
+        <div class="insight-body">People in crisis avoid asking for help publicly. The design uses live camera only, optional face blur, and no public feed — so requesting assistance does not require exposing vulnerability to a community.</div>
+      </div>
+      <div class="insight-card reveal d2">
+        <div class="insight-n">02</div>
+        <div class="insight-title">Offline functionality is critical</div>
+        <div class="insight-body">Rural crises often coincide with poor connectivity. GPS capture and request logging works offline — syncing automatically when a connection returns. Help cannot be conditional on internet access.</div>
+      </div>
+      <div class="insight-card reveal d3">
+        <div class="insight-n">03</div>
+        <div class="insight-title">Helpers need progress visibility</div>
+        <div class="insight-body">Volunteers drop out when they don't know if their help is still needed. The activity feed and task-tracking states — claimed, in progress, complete — keep helpers engaged and reduce duplication of effort.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-section reveal">
+    <div class="cs-s-label">Information Architecture</div>
+    <h2 class="cs-s-title">How the app<br>is <span>structured</span></h2>
+    <div class="cs-body"><p>The IA separates two primary journeys — requesting help and offering help — with a shared activity layer showing community status. Both journeys are accessible from the home screen in one tap.</p></div>
+    <div class="diagram-wrap">
+      <img src="ia_diagram.png" alt="3H Information Architecture">
+      <div class="diagram-cap">3H · Information Architecture Diagram</div>
+    </div>
+  </section>
+
+  <section class="cs-section reveal">
+    <div class="cs-s-label">User Flow</div>
+    <h2 class="cs-s-title">The complete<br><span>help request</span> journey</h2>
+    <div class="cs-body"><p>The main flow covers: home → select category → take photo → add description → submit request → confirmation. Six steps, one decision per screen. A parallel flow handles the helper journey: browse list → view detail → claim task → mark complete.</p></div>
+    <div class="diagram-wrap">
+      <img src="user_flow.png" alt="3H User Flow">
+      <div class="diagram-cap">3H · Help Request &amp; Helper Response Flow</div>
+    </div>
+  </section>
+
+  <!-- WIREFRAMES VS FINAL UI -->
+  <section class="cs-section reveal">
+    <div class="cs-s-label">Wireframes</div>
+    <h2 class="cs-s-title">From Wireframe<br>to <span>Final UI</span></h2>
+    <p class="wf-intro">Three key screens show how layout evolved from structural wireframe decisions to the final high-fidelity interface. Visual language, colour, and emotional tone were layered on top of a solid structural foundation.</p>
+
+    <div class="wf-rows">
+
+      <div class="wf-row">
+        <div class="wf-cell">
+          <div class="wf-cell-label">
+            <span class="wf-badge lo">Low-Fi Wireframe</span>
+            <span class="wf-screen-name">Home</span>
+          </div>
+          <div class="phone-frame phone-frame-3h"><img src="wf_home.png" alt="Home Wireframe"></div>
+        </div>
+        <div class="wf-cell">
+          <div class="wf-cell-label">
+            <span class="wf-badge hi">Final UI</span>
+            <span class="wf-screen-name">Home</span>
+          </div>
+          <div class="phone-frame phone-frame-3h"><img src="HOME.png" alt="Home Final"></div>
+        </div>
+      </div>
+
+      <div class="wf-row">
+        <div class="wf-cell">
+          <div class="wf-cell-label">
+            <span class="wf-badge lo">Low-Fi Wireframe</span>
+            <span class="wf-screen-name">Select Category</span>
+          </div>
+          <div class="phone-frame phone-frame-3h"><img src="wf_select_category.png" alt="Select Category Wireframe"></div>
+        </div>
+        <div class="wf-cell">
+          <div class="wf-cell-label">
+            <span class="wf-badge hi">Final UI</span>
+            <span class="wf-screen-name">Select Category</span>
+          </div>
+          <div class="phone-frame phone-frame-3h"><img src="SELECT_CATEGORY.png" alt="Select Category Final"></div>
+        </div>
+      </div>
+
+      <div class="wf-row">
+        <div class="wf-cell">
+          <div class="wf-cell-label">
+            <span class="wf-badge lo">Low-Fi Wireframe</span>
+            <span class="wf-screen-name">Take Photo</span>
+          </div>
+          <div class="phone-frame phone-frame-3h"><img src="wf_take_photo.png" alt="Take Photo Wireframe"></div>
+        </div>
+        <div class="wf-cell">
+          <div class="wf-cell-label">
+            <span class="wf-badge hi">Final UI</span>
+            <span class="wf-screen-name">Take Photo</span>
+          </div>
+          <div class="phone-frame phone-frame-3h"><img src="TAKE_PHOTO.png" alt="Take Photo Final"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FINAL SCREENS -->
+  <section class="cs-section reveal">
+    <div class="cs-s-label">Final Screens</div>
+    <h2 class="cs-s-title">The complete<br><span>UI</span></h2>
+
+    <div class="screens-hero-wrap">
+      <img src="HOME.png" alt="3H Home Screen">
+    </div>
+
+    <div class="screens-sub-label">Core Request Flow</div>
+    <div class="screens-row g4">
+      <div class="sc-cell"><div class="phone-frame phone-frame-3h"><img src="SELECT_CATEGORY.png" alt="Category"></div><div class="sc-name">Select Category</div></div>
+      <div class="sc-cell"><div class="phone-frame phone-frame-3h"><img src="TAKE_PHOTO.png" alt="Take Photo"></div><div class="sc-name">Take Photo</div></div>
+      <div class="sc-cell"><div class="phone-frame phone-frame-3h"><img src="PREVIEW_DESCRIPTION.png" alt="Preview"></div><div class="sc-name">Preview Description</div></div>
+      <div class="sc-cell"><div class="phone-frame phone-frame-3h"><img src="REQUEST_SUCCESS.png" alt="Success"></div><div class="sc-name">Request Success</div></div>
+    </div>
+
+    <div class="screens-sub-label">Helper Journey</div>
+    <div class="screens-row g4">
+      <div class="sc-cell"><div class="phone-frame phone-frame-3h"><img src="LIST.png" alt="Help List"></div><div class="sc-name">Help List</div></div>
+      <div class="sc-cell"><div class="phone-frame phone-frame-3h"><img src="DETAIL_PAGE.png" alt="Detail"></div><div class="sc-name">Detail Page</div></div>
+      <div class="sc-cell"><div class="phone-frame phone-frame-3h"><img src="MARKED_AS_HELPED.png" alt="Helped"></div><div class="sc-name">Marked as Helped</div></div>
+      <div class="sc-cell"><div class="phone-frame phone-frame-3h"><img src="EMPTY_STATE.png" alt="Empty State"></div><div class="sc-name">Empty State</div></div>
+    </div>
+  </section>
+
+  <!-- DESIGN DECISIONS -->
+  <section class="cs-section reveal">
+    <div class="cs-s-label">Design Decisions</div>
+    <h2 class="cs-s-title">Why these<br><span>choices</span> were made</h2>
+    <div class="decisions-grid">
+      <div class="decision-card reveal d1">
+        <div class="dc-q">Why live camera only — no gallery upload?</div>
+        <div class="dc-a">Gallery uploads allow staging and misrepresentation. Live camera enforces that the photo shows the real, current situation — building trust for helpers who are about to commit time and resources.</div>
+      </div>
+      <div class="decision-card reveal d2">
+        <div class="dc-q">Why no public feed of requests?</div>
+        <div class="dc-a">Publicly posting a crisis — even in a community context — exposes vulnerability. Requests are matched to helpers by proximity and category, not broadcast publicly. Dignity is protected by design.</div>
+      </div>
+      <div class="decision-card reveal d3">
+        <div class="dc-q">Why track task status after claiming?</div>
+        <div class="dc-a">Without visibility, helpers duplicate effort or abandon tasks assuming someone else helped. Status states — claimed, in progress, complete — prevent overlap and give everyone clarity without communication overhead.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFLECTION + NEXT STEPS -->
+  <section class="cs-section reveal">
+    <div class="cs-s-label">Reflection &amp; Next Steps</div>
+    <h2 class="cs-s-title">What I <span>learned</span></h2>
+    <div class="two-col">
+      <div class="ref-block">
+        <div class="ref-label">Reflection</div>
+        <div class="ref-body">
+          <p>This project taught me that designing for sensitive situations requires restraint. Every feature request has a cost — adding a public feed would increase visibility but destroy the psychological safety the app depends on.</p>
+          <p>The most important design skill here was knowing what to remove, not what to add.</p>
+        </div>
+      </div>
+      <div class="ref-block">
+        <div class="ref-label">Next Steps</div>
+        <div class="ref-body">
+          <ul>
+            <li>Volunteer verification and trust scoring system</li>
+            <li>SMS fallback for areas with no data connectivity</li>
+            <li>Admin dashboard for community coordinators</li>
+            <li>Multi-language support for diverse communities</li>
+            <li>Integration with local emergency services</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="proto-band reveal">
+    <div class="proto-text">View the <span>interactive prototype</span> in Figma</div>
+    <a href="https://www.figma.com/proto/bT0R8SdJqP63wp8J0J3edi/3H-Product-Design.?page-id=104%3A909&node-id=160-315&viewport=156%2C597%2C0.51&t=L1Pc6IJCM2vvJRIK-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=160%3A315" target="_blank" class="proto-btn">Open Prototype ↗</a>
+  </div>
+
+  <a href="crosspay-case-study.html" class="next-proj reveal">
+    <div>
+      <div class="np-label">Next Project · 02 · Fintech</div>
+      <div class="np-name">CrossPay — Money Transfer</div>
+    </div>
+    <div class="np-arr">→</div>
+  </a>
+
+</div>
+
+<footer>
+  <div class="f-l">3H · Case Study 01 · Karthik Vanapalli</div>
+  <div class="f-r"><a href="index.html">← Back to Portfolio</a></div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) e.target.classList.add('in');
+}), { threshold: 0.06 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
