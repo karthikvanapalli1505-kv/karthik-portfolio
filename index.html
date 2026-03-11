@@ -576,4 +576,28 @@ function initPortfolio() {
         io.unobserve(e.target);
       }
     });
-  }, { thresho
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => io.observe(el));
+}
+</script>
+
+<script>
+// Photo parallax
+(function(){
+  var img = document.querySelector('.about-photo-wrap img');
+  if(!img) return;
+  function onScroll(){
+    var wrap = img.closest('.about-photo-wrap');
+    var rect = wrap.getBoundingClientRect();
+    var vh = window.innerHeight;
+    if(rect.bottom < 0 || rect.top > vh) return;
+    var progress = (vh - rect.top) / (vh + rect.height);
+    var shift = (progress - 0.5) * 28;
+    img.style.transform = 'translateY(' + shift + 'px)';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>
