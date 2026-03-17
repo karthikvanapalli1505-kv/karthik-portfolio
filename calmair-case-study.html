@@ -55,8 +55,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;display:flex;ali
 .insight-title{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:.4rem}
 .insight-body{font-size:.84rem;color:var(--muted);line-height:1.8}
 
-.diagram-wrap{margin-top:1.8rem;background:var(--card);border:1px solid var(--border);border-left:3px solid var(--ac);overflow:hidden}
-.diagram-wrap img{width:100%;display:block;object-fit:contain;background:var(--card2);padding:2rem}
+.diagram-wrap{margin-top:1.8rem;background:var(--card2);border:1px solid var(--border);border-left:3px solid var(--ac);overflow:hidden;display:flex;justify-content:center;align-items:center}
+.diagram-wrap img{display:block;width:100%;height:auto;max-height:85vh;object-fit:contain;padding:1rem}
 .diagram-cap{padding:.7rem 1.1rem;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,123,46,.44);border-top:1px solid var(--border)}
 
 .wf-intro{font-size:.9rem;color:var(--muted);line-height:1.9;max-width:680px;margin-bottom:2.2rem}
@@ -252,7 +252,7 @@ footer{padding:1.4rem 3rem;border-top:1px solid var(--border);background:var(--d
     <div class="cs-body"><p>The IA is a linear nine-level hierarchy mapping the exact physical journey through a UK airport — from landing gate to exit. Each level corresponds to one real-world location or checkpoint. Users cannot skip levels, ensuring they never arrive at a checkpoint unprepared.</p></div>
     <div class="diagram-wrap">
       <img src="ca_ia.png" alt="Calm Air Information Architecture">
-      <div class="diagram-cap">Calm Air · Information Architecture — 9-Level Structure</div>
+      <div class="diagram-cap">Calm Air — Information Architecture</div>
     </div>
   </section>
 
@@ -262,7 +262,7 @@ footer{padding:1.4rem 3rem;border-top:1px solid var(--border);background:var(--d
     <div class="cs-body"><p>The main flow maps the student from document prep through all nine physical checkpoints to final exit. Each level unlocks only when the previous level is marked complete — enforcing the linear journey that mirrors the real airport process.</p></div>
     <div class="diagram-wrap">
       <img src="ca_userflow.png" alt="Calm Air User Flow">
-      <div class="diagram-cap">Calm Air · Complete Arrival Flow</div>
+      <div class="diagram-cap">Calm Air — User Flow</div>
     </div>
   </section>
 

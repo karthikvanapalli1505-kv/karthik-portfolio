@@ -297,7 +297,7 @@ footer{padding:1.5rem 3rem;border-top:1px solid var(--border);background:var(--d
   <section id="work">
     <div class="section">
       <div class="s-eyebrow reveal">Selected Work</div>
-      <h2 class="s-head reveal d1">Three Projects.<br><span class="o">Real Problems.</span></h2>
+      <h2 class="s-head reveal d1">Three Projects.<br><span class="o">Real Product Problems.</span></h2>
       <div class="s-rule reveal d2"></div>
 
       <!-- 01 -->
@@ -389,7 +389,7 @@ footer{padding:1.5rem 3rem;border-top:1px solid var(--border);background:var(--d
                 <div class="proj-index">03</div>
                 <div class="proj-type">Travel UX · Desktop Web</div>
               </div>
-              <div class="proj-name">Calm Air —<br>Student Travel</div>
+              <div class="proj-name">Calm Air —<br>Student Travel Guidance</div>
               <div class="proj-tagline">How do you replace arrival anxiety with calm, step-by-step guidance?</div>
               <div class="proj-desc">A 9-level desktop platform for first-time international students arriving in the UK — replacing 12+ scattered pages with one structured journey.</div>
               <div class="proj-role">
@@ -489,7 +489,7 @@ footer{padding:1.5rem 3rem;border-top:1px solid var(--border);background:var(--d
         <div class="reveal rl">
           <div class="s-eyebrow">Get In Touch</div>
           <div class="contact-big">Let's<br><span class="o">Work<br>Together</span></div>
-          <p class="c-sub">Looking for junior product designer opportunities. I respond quickly — reach out anytime.</p>
+          <p class="c-sub">Currently seeking junior product designer opportunities. I respond quickly — feel free to reach out anytime.</p>
           <div class="c-btns">
             <a href="mailto:karthikvanapalli1505@gmail.com" class="btn-p">Email Me</a>
             <a href="https://www.linkedin.com/in/venkatakarthikdesigner" target="_blank" class="btn-s">LinkedIn ↗</a>
@@ -505,7 +505,7 @@ footer{padding:1.5rem 3rem;border-top:1px solid var(--border);background:var(--d
             <span class="cl-arr">↗</span>
           </a>
           <a href="resume.pdf" target="_blank" class="c-link">
-            <div class="cl-info"><div class="cl-tag">Resume</div><div class="cl-name">Download CV</div></div>
+            <div class="cl-info"><div class="cl-tag">Resume</div><div class="cl-name">Download Resume</div></div>
             <span class="cl-arr">↓</span>
           </a>
           <a href="3h-case-study.html" class="c-link">
@@ -591,15 +591,4 @@ function initPortfolio() {
   function onScroll(){
     var wrap = img.closest('.about-photo-wrap');
     var rect = wrap.getBoundingClientRect();
-    var vh = window.innerHeight;
-    if(rect.bottom < 0 || rect.top > vh) return;
-    var progress = (vh - rect.top) / (vh + rect.height);
-    var shift = (progress - 0.5) * 28;
-    img.style.transform = 'translateY(' + shift + 'px)';
-  }
-  window.addEventListener('scroll', onScroll, {passive:true});
-  onScroll();
-})();
-</script>
-</body>
-</html>
+    var vh = window.innerHeig
