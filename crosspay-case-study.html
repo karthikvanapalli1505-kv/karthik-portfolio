@@ -56,8 +56,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;display:flex;ali
 .insight-title{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:.4rem}
 .insight-body{font-size:.84rem;color:var(--muted);line-height:1.8}
 
-.diagram-wrap{margin-top:1.8rem;background:var(--card2);border:1px solid var(--border);border-left:3px solid var(--ac);overflow:hidden;display:flex;justify-content:center;align-items:center}
-.diagram-wrap img{display:block;width:100%;height:auto;max-height:85vh;object-fit:contain;padding:1rem}
+.diagram-section-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:3rem;align-items:start;margin-top:1.8rem}
+.diagram-wrap{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--ac);overflow:hidden;border-radius:8px}
+.diagram-wrap img{display:block;width:100%;height:auto;max-height:90vh;object-fit:contain;padding:2rem;filter:invert(1) hue-rotate(180deg) brightness(.88) saturate(1.3) contrast(1.1)}
 .diagram-cap{padding:.7rem 1.1rem;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(59,130,246,.44);border-top:1px solid var(--border)}
 
 /* WIREFRAME COMPARISON */
@@ -123,6 +124,7 @@ footer{padding:1.4rem 3rem;border-top:1px solid var(--border);background:var(--d
   .cs-hero-inner,.cs-content{padding-left:1.3rem;padding-right:1.3rem}
   nav{padding:0 1.3rem}
   .wf-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .diagram-section-grid{grid-template-columns:1fr}
   .insights-grid,.decisions-grid{grid-template-columns:1fr}
   .two-col{grid-template-columns:1fr}
   .screens-row.g7,.screens-row.g5,.screens-row.g4{grid-template-columns:repeat(2,1fr)}
@@ -238,23 +240,32 @@ footer{padding:1.4rem 3rem;border-top:1px solid var(--border);background:var(--d
     </div>
   </section>
 
+
   <section class="cs-section reveal">
     <div class="cs-s-label">Information Architecture</div>
-    <h2 class="cs-s-title">How the app<br>is <span>structured</span></h2>
-    <div class="cs-body"><p>The IA is built around a single primary action — sending money — with everything else as supporting structure. No more than three taps from any screen to initiate a transfer.</p></div>
-    <div class="diagram-wrap">
-      <img src="cp_ia.png" alt="CrossPay Information Architecture">
-      <div class="diagram-cap">CrossPay — Information Architecture</div>
+    <div class="diagram-section-grid">
+      <div>
+        <h2 class="cs-s-title">How the app<br>is <span>structured</span></h2>
+        <div class="cs-body"><p>The IA is built around a single primary action — sending money — with everything else as supporting structure. No more than three taps from any screen to initiate a transfer.</p></div>
+      </div>
+      <div class="diagram-wrap">
+        <img src="cp_ia.png" alt="CrossPay Information Architecture">
+        <div class="diagram-cap">CrossPay — Information Architecture</div>
+      </div>
     </div>
   </section>
 
   <section class="cs-section reveal">
     <div class="cs-s-label">User Flow</div>
-    <h2 class="cs-s-title">The complete<br><span>transfer journey</span></h2>
-    <div class="cs-body"><p>Six steps: splash → home → select recipient → enter amount → review → payment. Each step has one clear decision. Simplified from an initial eight-step version after testing showed confidence dropping when steps felt redundant.</p></div>
-    <div class="diagram-wrap">
-      <img src="cp_userflow.png" alt="CrossPay User Flow">
-      <div class="diagram-cap">CrossPay — User Flow</div>
+    <div class="diagram-section-grid">
+      <div>
+        <h2 class="cs-s-title">The complete<br><span>transfer journey</span></h2>
+        <div class="cs-body"><p>Six steps: splash → home → select recipient → enter amount → review → payment. Each step has one clear decision. Simplified from an initial eight-step version after testing showed confidence dropping when steps felt redundant.</p></div>
+      </div>
+      <div class="diagram-wrap">
+        <img src="cp_userflow.png" alt="CrossPay User Flow">
+        <div class="diagram-cap">CrossPay — User Flow</div>
+      </div>
     </div>
   </section>
 
@@ -438,7 +449,10 @@ footer{padding:1.4rem 3rem;border-top:1px solid var(--border);background:var(--d
 
     <div class="proto-band reveal">
     <div class="proto-text">View the <span>interactive prototype</span> in Figma</div>
-    <a href="https://www.figma.com/proto/kqI9sOw1vXOPCBncvIDrRa/CPAY?page-id=9%3A139&node-id=102-278&viewport=1644%2C1208%2C0.44&t=sL0Tg2CABkUm80PF-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=102%3A278" target="_blank" class="proto-btn">Open Prototype ↗</a>
+    <div style="display:flex;flex-direction:column;gap:.5rem;align-items:flex-start">
+      <a href="https://www.figma.com/proto/kqI9sOw1vXOPCBncvIDrRa/CPAY?page-id=&node-id=102-278&p=f&viewport=391%2C492%2C0.08&t=vvSFCb8Py6HPScyB-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=102%3A278" target="_blank" class="proto-btn">Open Prototype ↗</a>
+      <span style="font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.25)">Best viewed in Chrome</span>
+    </div>
   </div>
 
   <div class="cs-nav">
